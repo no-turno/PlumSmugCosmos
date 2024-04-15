@@ -12,7 +12,14 @@ Bun.serve({
 
     if (!matchedRoute) {
       const notFoundRoute = router.match('/404')
-      return new Response(Bun.file(notFoundRoute?.filePath!))
+      const res = new HTMLRewriter().on("head", {
+        element(el) {
+          el.append(`<link rel="stylesheet" href="style">`, {
+            html: true
+          })
+        }
+      }).transform(await Bun.file(notFoundRoute?.filePath!).text());
+      return new Response(res)
     }
 
     return new Response(Bun.file(matchedRoute.filePath))
