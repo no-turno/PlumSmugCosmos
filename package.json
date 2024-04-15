@@ -1,10 +1,11 @@
 {
+  "version": "0.1.7",
   "name": "plumsmugcosmos",
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
     "dev": "bun run --watch src/index.ts",
-    "build": "bun build src/index.ts --format=esm --target=bun --outdir=dist --minify",
+    "build": "bun ./scripts/build.bun.sh",
     "start": "bun run --port=80 dist/index.js"
   },
   "devDependencies": {

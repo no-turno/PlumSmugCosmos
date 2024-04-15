@@ -1,2 +1,21 @@
+jsx = "react-jsx"
 smol = true
+logLevel = "info"
+telemetry = false
 
+[define]
+"process.env.HOSTNAME" = "'0.0.0.0'"
+"process.env.RUNNER" = "'replit'"
+"process.env.DEPLOYMENT_TARGET" = "'cloudrun'"
+"process.env.OUTDIR" = "'dist'"
+"process.env.XDG_CONFIG_HOME" = "$XDG_CONFIG_HOME"
+
+[loader]
+".ts" = "ts"
+".tsx" = "tsx"
+".jsx" = "jsx"
+".js" = "js"
+".replit" = "toml"
+
+[install]
+auto = true

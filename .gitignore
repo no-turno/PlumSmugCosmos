@@ -176,5 +176,6 @@ dist
 
 dist
 .cache
-.config
+.config/.bun
+.config/npm
 .upm
