@@ -1,8 +1,120 @@
-* {
+:root {
+  --brand-color: #0070f3;
+  --bg-color: #fff;
+  --text-primary: #000;
+  --text-contrast: #fff;
+
+  --blue-100: #e6f7ff;
+  --blue-200: #b1b5f2;
+  --blue-300: #8092ea;
+  --blue-400: #4c51e1;
+  --blue-500: #2825da;
+
+  --green-100: #e6f7ff;
+  --green-200: #b1f2b8;
+  --green-300: #80ea8c;
+  --green-400: #4de1a4;
+  --green-500: #28da7e;
+
+  --yellow-100: #fff8e6;
+  --yellow-200: #f2e2b1;
+  --yellow-300: #eac880;
+  --yellow-400: #e1b14c;
+  --yellow-500: #d99a28;
+
+  --slate-100: #f7f7f7;
+  --slate-200: #e6e6e6;
+  --slate-300: #d4d4d4;
+  --slate-400: #b3b3b3;
+  --slate-500: #737373;
+  --slate-600: #4d4d4d;
+  --slate-700: #262626;
+  
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Fira Code", monospace;
+  --font-base: 12px;
+  --font-bold: 700;
+  --font-semi: 600;
+  --font-regular: 500;
+  --font-light: 300;
+  
+  --spacing-base: 0.8rem;
+  --spacing-sm: calc(var(--spacing-base) * 0.5);
+  --spacing-md: calc(var(--spacing-base) * 1);
+  --spacing-lg: calc(var(--spacing-base) * 1.5);
+  --spacing-xl: calc(var(--spacing-base) * 2);
+  
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 0.125rem 0.25rem var(--shadow-color);
+  --shadow-md: 0 0.25rem 0.5rem var(--shadow-color);
+  --shadow-lg: 0 0.5rem 1rem var(--shadow-color);
+}
+
+*, *::after, *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  background-color: red;
-  color: white;
+  background-color: var(--slate-100);
+  color: var(--blue-500);
+  font-family: var(--font-sans);
+  font-size: var(--font-base);
+}
+
+a, ul, li {
+  all: unset;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--blue-400);
+}
+
+.p-2 {
+  padding: var(--spacing-md);
+}
+
+.flex {
+  display: flex;
+}
+
+.gap-4 {
+  gap: var(--spacing-md);
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.content-center {
+  align-content: center;
+}
+
+[data-type="link"] {
+  cursor: pointer;
+  color: var(--green-200);
+
+  &:hover {
+    color: var(--green-300);
+    font-weight: var(--font-semi);
+    transform: scale(var(--spacing-md));
+  }
+}
+
+header {
+  background-color: var(--slate-700);
+}
+
+body {
+  background-color: var(--slate-600);
 }
