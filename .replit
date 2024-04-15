@@ -1,0 +1,61 @@
+run = "bun run --port=3000 --watch src/index.ts"
+entrypoint = "src/index.ts"
+
+[packager]
+language = "bun"
+
+[packager.features]
+enabledForHosting = false
+guessImports = true
+packageSearch = true
+
+[nix]
+channel = "stable-23_11"
+
+[env]
+XDG_CONFIG_HOME = "/home/runner/$REPL_SLUG/.config"
+XDG_CONFIG_CACHE = "/home/runner/$REPL_SLUG/.cache"
+npm_config_prefix = "/home/runner/$REPL_SLUG/.config/npm/node_globals"
+BUN_INSTALL = "/home/runner/$REPL_SLUG/.config/.bun"
+PATH = "/home/runner/$REPL_SLUG/.config/npm/node_globals/bin:/home/runner/$REPL_SLUG/.config/.bun/bin"
+
+
+[languages]
+
+[languages.javascript]
+pattern = "**/{*.js,*.jsx,*.ts,*.tsx,*.mjs,*.mts,*.cjs,*.cts}"
+[languages.javascript.languageServer]
+start = "typescript-language-server --stdio"
+
+[languages.html]
+pattern = "**/{*.html,*.htm,*.htmx}"
+[languages.html.languageServer]
+start = "vscode-html-language-server  --stdio"
+
+[languages.css]
+pattern = "**/{*.css,*.scss,*.sass}"
+[languages.css.languageServer]
+start = "vscode-css-language-server  --stdio"
+
+[languages.eslint]
+pattern = "**/eslint.config.{js,mjs}"
+[languages.eslint.languageServer]
+start = "vscode-eslint-language-server --stdio"
+
+[languages.nix]
+pattern = "**/*.{nix}"
+[languages.nix.languageServer]
+start = "nixd"
+
+[deployment]
+build = "bun build src/index.ts --format=esm --target=bun --outdir=dist --minify"
+run = ["sh", "-c", "NODE_ENV=production bun run --port=80 --smol dist/index.js"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 80
+externalPort = 80
+
+[auth]
+pageEnabled = false
+buttonEnabled = false
