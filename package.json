@@ -1,5 +1,5 @@
 {
-  "version": "0.1.7",
+  "version": "0.2.7",
   "name": "plumsmugcosmos",
   "module": "src/index.ts",
   "type": "module",

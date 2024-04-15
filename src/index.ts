@@ -10,6 +10,10 @@ Bun.serve({
     router.reload()
     const matchedRoute = router.match(req);
 
+    if (new URL(req.url).pathname === "/release") {
+      return new Response(Bun.file('.release.txt'))
+    }
+
     if (!matchedRoute) {
       const notFoundRoute = router.match('/404')
       const res = new HTMLRewriter().on("head", {
